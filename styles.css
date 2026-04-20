@@ -51,9 +51,15 @@ body {
   padding: 40px 20px 64px;
 }
 
+.hub-shell {
+  max-width: 1240px;
+}
+
 .hero-panel,
 .stats-strip,
 .play-grid,
+.hub-hero,
+.hub-grid,
 .archive-panel,
 .source-panel {
   position: relative;
@@ -67,6 +73,34 @@ body {
   margin-bottom: 24px;
 }
 
+.hub-hero {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+  padding: 34px;
+  background:
+    radial-gradient(circle at top right, rgba(214, 66, 58, 0.18), transparent 30%),
+    linear-gradient(155deg, rgba(13, 94, 166, 0.96), rgba(9, 61, 107, 0.92));
+  box-shadow: var(--shadow);
+  color: #fff8ef;
+}
+
+.hub-hero h1 {
+  margin: 8px 0 12px;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.hub-lead {
+  max-width: 42rem;
+  margin: 0;
+  color: rgba(255, 248, 239, 0.84);
+  line-height: 1.72;
+  font-size: 1.06rem;
+}
+
 .hero-copy,
 .hero-side,
 .game-panel,
@@ -75,6 +109,7 @@ body {
 .source-panel,
 .stat-card,
 .fact-link-card,
+.game-tile,
 .mini-panel {
   border: 1px solid var(--line);
   background: var(--panel);
@@ -186,6 +221,86 @@ body {
   margin: 8px 0;
   font-size: 1.5rem;
   line-height: 1.18;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.game-tile {
+  display: block;
+  min-height: 240px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.game-tile:hover {
+  transform: translateY(-3px);
+}
+
+.game-tile-live {
+  background:
+    radial-gradient(circle at top right, rgba(239, 182, 71, 0.22), transparent 28%),
+    linear-gradient(145deg, rgba(13, 94, 166, 0.98), rgba(9, 61, 107, 0.94));
+  color: #fff8ef;
+}
+
+.game-tile-live:hover {
+  box-shadow: 0 24px 60px rgba(9, 61, 107, 0.24);
+}
+
+.game-tile-soon {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 240, 0.98), rgba(244, 237, 224, 0.94));
+}
+
+.game-tile-label {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.72;
+}
+
+.game-tile h2 {
+  margin: 12px 0 10px;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.game-tile-copy {
+  margin: 0;
+  max-width: 28rem;
+  line-height: 1.72;
+  color: inherit;
+  opacity: 0.88;
+}
+
+.game-tile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.game-tile-meta span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.game-tile-soon .game-tile-meta span {
+  background: rgba(18, 32, 45, 0.06);
 }
 
 .motif-note {
@@ -516,6 +631,7 @@ body {
   .hero-panel,
   .play-grid,
   .stats-strip,
+  .hub-grid,
   .facts-grid {
     grid-template-columns: 1fr;
   }
@@ -539,6 +655,7 @@ body {
   .hero-copy,
   .game-panel,
   .info-panel,
+  .hub-hero,
   .archive-panel,
   .source-panel {
     padding: 22px;
