@@ -128,6 +128,14 @@ const elements = {
   winnerCloseButton: document.getElementById("winnerCloseButton")
 };
 
+function hasGameUI() {
+  return Boolean(elements.questionText && elements.optionsGrid && elements.continueButton);
+}
+
+function hasArchiveUI() {
+  return Boolean(elements.factsGrid);
+}
+
 function getDayKey() {
   const now = new Date();
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
@@ -175,9 +183,24 @@ function buildDeck(cycle, dayKey) {
   return ids;
 }
 
+function buildOptionOrder(factId, cycle, dayKey) {
+  const fact = FACTS[factId];
+  const options = [...fact.options];
+  const seed = hashString(`${dayKey}-${cycle}-${factId}-options`)();
+  const random = mulberry32(seed);
+
+  for (let i = options.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1));
+    [options[i], options[j]] = [options[j], options[i]];
+  }
+
+  return options;
+}
+
 function createFreshState(previousWins = 0, previousBest = 0) {
   const dayKey = getDayKey();
   const deck = buildDeck(previousWins + 1, dayKey);
+  const currentId = deck[0];
   return {
     cycle: previousWins + 1,
     wins: previousWins,
@@ -186,7 +209,8 @@ function createFreshState(previousWins = 0, previousBest = 0) {
     answered: 0,
     completed: false,
     queue: deck,
-    currentId: deck[0],
+    currentId,
+    currentOptions: buildOptionOrder(currentId, previousWins + 1, dayKey),
     mode: "question",
     lastResult: null,
     dayKey
@@ -203,7 +227,8 @@ function loadState() {
     const parsed = JSON.parse(raw);
     const badQueue = !Array.isArray(parsed.queue) || parsed.queue.some((id) => typeof id !== "number" || id < 0 || id >= FACTS.length);
     const badCurrent = typeof parsed.currentId !== "number" || parsed.currentId < 0 || parsed.currentId >= FACTS.length;
-    if (badQueue || badCurrent) {
+    const badOptions = !Array.isArray(parsed.currentOptions) || parsed.currentOptions.length !== FACTS[parsed.currentId].options.length;
+    if (badQueue || badCurrent || badOptions) {
       return createFreshState(parsed.wins || 0, parsed.bestStreak || 0);
     }
 
@@ -225,7 +250,7 @@ function resetCycle() {
   state = createFreshState(state.wins, state.bestStreak);
   saveState();
   closeWinnerDialog();
-  render();
+  renderGame();
 }
 
 function completeRun() {
@@ -236,12 +261,16 @@ function completeRun() {
 }
 
 function closeWinnerDialog() {
-  if (elements.winnerDialog.open) {
+  if (elements.winnerDialog && elements.winnerDialog.open) {
     elements.winnerDialog.close();
   }
 }
 
 function renderStats() {
+  if (!hasGameUI()) {
+    return;
+  }
+
   elements.todayBadge.textContent = `Today's trail • ${formatToday()}`;
   elements.streakValue.textContent = String(state.streak);
   elements.bestValue.textContent = String(state.bestStreak);
@@ -253,8 +282,13 @@ function renderStats() {
 }
 
 function renderQuestion() {
+  if (!hasGameUI()) {
+    return;
+  }
+
   const fact = FACTS[state.currentId];
   const cardNumber = state.answered + (state.mode === "feedback" ? 0 : 1);
+  const optionOrder = state.currentOptions || fact.options;
 
   elements.categoryPill.textContent = fact.category;
   elements.questionIndexPill.textContent = `Card ${Math.min(cardNumber, FACTS.length)} of ${FACTS.length}`;
@@ -265,7 +299,7 @@ function renderQuestion() {
 
   elements.optionsGrid.innerHTML = "";
 
-  fact.options.forEach((option) => {
+  optionOrder.forEach((option) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "option-button";
@@ -300,6 +334,10 @@ function renderQuestion() {
 }
 
 function renderArchive(filteredFacts = FACTS.map((fact, index) => ({ fact, originalIndex: index + 1 }))) {
+  if (!hasArchiveUI()) {
+    return;
+  }
+
   elements.factsGrid.innerHTML = "";
 
   if (filteredFacts.length === 0) {
@@ -321,7 +359,11 @@ function renderArchive(filteredFacts = FACTS.map((fact, index) => ({ fact, origi
   });
 }
 
-function render() {
+function renderGame() {
+  if (!hasGameUI()) {
+    return;
+  }
+
   renderStats();
   renderQuestion();
   if (state.answered === FACTS.length) {
@@ -352,7 +394,7 @@ function submitAnswer(option) {
   };
 
   saveState();
-  render();
+  renderGame();
 }
 
 function nextQuestion() {
@@ -362,10 +404,11 @@ function nextQuestion() {
   }
 
   state.currentId = state.queue[0];
+  state.currentOptions = buildOptionOrder(state.currentId, state.cycle, state.dayKey);
   state.mode = "question";
   state.lastResult = null;
   saveState();
-  render();
+  renderGame();
 }
 
 function searchFacts() {
@@ -387,11 +430,27 @@ function searchFacts() {
 
 let state = loadState();
 
-elements.continueButton.addEventListener("click", nextQuestion);
-elements.restartButton.addEventListener("click", resetCycle);
-elements.winnerRestartButton.addEventListener("click", resetCycle);
-elements.winnerCloseButton.addEventListener("click", closeWinnerDialog);
-elements.factSearch.addEventListener("input", searchFacts);
+if (elements.continueButton) {
+  elements.continueButton.addEventListener("click", nextQuestion);
+}
 
-render();
+if (elements.restartButton) {
+  elements.restartButton.addEventListener("click", resetCycle);
+}
+
+if (elements.winnerRestartButton) {
+  elements.winnerRestartButton.addEventListener("click", resetCycle);
+}
+
+if (elements.winnerCloseButton) {
+  elements.winnerCloseButton.addEventListener("click", () => {
+    window.location.href = "about.html";
+  });
+}
+
+if (elements.factSearch) {
+  elements.factSearch.addEventListener("input", searchFacts);
+}
+
+renderGame();
 renderArchive();

@@ -1,5 +1,32 @@
 ---
-title: "About"
+title: "Fact Archive"
+page-layout: full
+toc: false
 ---
 
-About this site
+```{=html}
+<div class="mongolia-shell archive-shell">
+  <section class="archive-panel">
+    <div class="archive-head">
+      <div>
+        <p class="archive-eyebrow">Mongolia 100</p>
+        <h2>All 100 Mongolia facts</h2>
+        <p class="archive-intro">
+          Search the full archive by keyword, answer, or category. The numbering matches the fixed
+          100-card deck used in the game.
+        </p>
+      </div>
+      <div class="archive-actions">
+        <label class="search-wrap" for="factSearch">
+          <span>Search facts</span>
+          <input id="factSearch" type="search" placeholder="Search by keyword, answer, or category" />
+        </label>
+        <a class="ghost-button archive-back" href="index.html">Back to game</a>
+      </div>
+    </div>
+    <div class="facts-grid" id="factsGrid"></div>
+  </section>
+</div>
+
+<script src="game.js"></script>
+```

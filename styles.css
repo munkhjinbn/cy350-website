@@ -71,7 +71,7 @@ body {
 .archive-panel,
 .source-panel,
 .stat-card,
-.motif-card,
+.fact-link-card,
 .mini-panel {
   border: 1px solid var(--line);
   background: var(--panel);
@@ -104,7 +104,7 @@ body {
 }
 
 .eyebrow,
-.motif-label,
+.archive-eyebrow,
 .stat-label,
 .mini-label,
 .fact-category,
@@ -120,7 +120,6 @@ body {
 }
 
 .hero-chips,
-.palette-row,
 .question-meta,
 .winner-actions,
 .panel-actions {
@@ -150,7 +149,7 @@ body {
 }
 
 .date-badge,
-.motif-card {
+.fact-link-card {
   border-radius: var(--radius-lg);
 }
 
@@ -162,14 +161,17 @@ body {
   box-shadow: var(--shadow);
 }
 
-.motif-card {
+.fact-link-card {
+  display: block;
   padding: 24px;
+  text-decoration: none;
+  color: inherit;
   background:
     linear-gradient(180deg, rgba(255, 249, 240, 0.98), rgba(247, 239, 222, 0.94)),
     radial-gradient(circle at top right, rgba(13, 94, 166, 0.08), transparent 40%);
 }
 
-.motif-label,
+.archive-eyebrow,
 .stat-label,
 .mini-label,
 .fact-category,
@@ -177,23 +179,17 @@ body {
   color: var(--muted);
 }
 
+.fact-link-card h2 {
+  margin: 8px 0;
+  font-size: 1.5rem;
+  line-height: 1.18;
+}
+
 .motif-note {
   margin: 14px 0 0;
   line-height: 1.7;
   color: var(--muted);
 }
-
-.swatch {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.swatch-blue { background: var(--sky); }
-.swatch-red { background: var(--flag-red); }
-.swatch-gold { background: var(--gold); }
-.swatch-sand { background: var(--sand); }
 
 .stats-strip {
   display: grid;
@@ -270,6 +266,7 @@ body {
 .fact-detail,
 .source-panel p,
 .archive-panel p,
+.archive-intro,
 .winner-content p {
   line-height: 1.72;
 }
@@ -277,6 +274,7 @@ body {
 .question-lead,
 .source-panel p,
 .archive-panel p,
+.archive-intro,
 .fact-detail {
   color: var(--muted);
 }
@@ -395,6 +393,7 @@ body {
   background: rgba(255, 255, 255, 0.7);
   border-color: rgba(18, 32, 45, 0.1);
   color: var(--ink);
+  text-decoration: none;
 }
 
 .archive-panel {
@@ -407,6 +406,16 @@ body {
   align-items: end;
   gap: 18px;
   margin-bottom: 22px;
+}
+
+.archive-actions {
+  display: grid;
+  gap: 12px;
+  min-width: min(360px, 100%);
+}
+
+.archive-back {
+  justify-self: start;
 }
 
 .search-wrap {
@@ -513,6 +522,7 @@ body {
     flex-direction: column;
   }
 
+  .archive-actions,
   .search-wrap {
     min-width: 0;
   }

@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">Facts</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -151,18 +151,11 @@ ul.task-list li input[type="checkbox"] {
     </div>
     <div class="hero-side">
       <div class="date-badge" id="todayBadge">Loading today's trail...</div>
-      <div class="motif-card">
-        <p class="motif-label">Palette</p>
-        <div class="palette-row">
-          <span class="swatch swatch-blue"></span>
-          <span class="swatch swatch-red"></span>
-          <span class="swatch swatch-gold"></span>
-          <span class="swatch swatch-sand"></span>
-        </div>
-        <p class="motif-note">
-          Inspired by the Mongolian flag, open sky, steppe grass, and sun-toned desert.
-        </p>
-      </div>
+      <a class="fact-link-card" href="about.html">
+        <p class="mini-label">Fact archive</p>
+        <h2 class="anchored">Browse all 100 facts on a separate page.</h2>
+        <p class="motif-note">Use the archive if you want to study before or after a streak run.</p>
+      </a>
     </div>
   </section>
 
@@ -223,20 +216,6 @@ ul.task-list li input[type="checkbox"] {
     </aside>
   </section>
 
-  <section class="archive-panel">
-    <div class="archive-head">
-      <div>
-        <p class="eyebrow">Fact Archive</p>
-        <h2 class="anchored">All 100 Mongolia facts</h2>
-      </div>
-      <label class="search-wrap" for="factSearch">
-        <span>Search facts</span>
-        <input id="factSearch" type="search" placeholder="Search by keyword, answer, or category">
-      </label>
-    </div>
-    <div class="facts-grid" id="factsGrid"></div>
-  </section>
-
   <section class="source-panel">
     <p class="eyebrow">Source Notes</p>
     <p>
@@ -256,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
     </p>
     <div class="winner-actions">
       <button class="primary-button" id="winnerRestartButton" type="button">Restart trail</button>
-      <button class="ghost-button" id="winnerCloseButton" type="button">Browse archive</button>
+      <button class="ghost-button" id="winnerCloseButton" type="button">View fact archive</button>
     </div>
   </div>
 </dialog>
