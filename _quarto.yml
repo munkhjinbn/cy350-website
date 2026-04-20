@@ -1,14 +1,26 @@
 project:
   type: website
+  resources:
+    - mongolia-adm1.geojson
+    - game.js
+    - province-guessr.js
+    - landmark-guessr.js
+    - ger-puzzle.js
 
 website:
-  title: "Mongolia 100"
+  title: "Mongolia Games"
   navbar:
     left:
-      - href: all-games.qmd
-        text: All Games
       - href: index.qmd
-        text: Game
+        text: All Games
+      - href: mongolia-100.qmd
+        text: Mongolia 100
+      - href: province-guessr.qmd
+        text: Province Guessr
+      - href: landmark-guessr.qmd
+        text: Landmark Guessr
+      - href: ger-puzzle.qmd
+        text: Ger Builder
       - href: about.qmd
         text: Facts
 

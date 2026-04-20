@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>All Games – Mongolia Games</title>
+<title>Landmark Guessr – Mongolia Games</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Province Guessr</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./landmark-guessr.html"> 
+    <a class="nav-link active" href="./landmark-guessr.html" aria-current="page"> 
 <span class="menu-text">Landmark Guessr</span></a>
   </li>  
   <li class="nav-item">
@@ -129,11 +129,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">All Games</h1>
+<h1 class="title">Landmark Guessr</h1>
 </div>
 
 
@@ -150,78 +150,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="mongolia-shell hub-shell">
-  <section class="hub-hero">
-    <p class="archive-eyebrow">Game Library</p>
-    <h1>All Games</h1>
-    <p class="hub-lead">
-      A growing set of Mongolia-focused games and quick geography challenges. Start with the four
-      live games below, then use the reserved slots as the library expands.
-    </p>
+<div class="mongolia-shell province-shell page-columns page-full">
+  <section class="hero-panel province-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Interactive Mongolia Map Game</p>
+      <h1>Landmark Guessr</h1>
+      <p class="hero-text">
+        A famous Mongolian landmark appears in the prompt. Click where you think it is on the map.
+        Correct clicks keep the streak alive. A miss ends the run and starts a fresh landmark order.
+      </p>
+      <div class="hero-chips">
+        <span class="chip">11 landmarks</span>
+        <span class="chip">No repeats in a run</span>
+        <span class="chip">Map precision</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="date-badge" id="landmarkStatusBadge">Loading landmark run...</div>
+      <a class="fact-link-card" href="index.html">
+        <p class="mini-label">All games</p>
+        <h2 class="anchored">Back to the launcher.</h2>
+        <p class="motif-note">Jump back to the hub or switch over to the province and fact games.</p>
+      </a>
+    </div>
   </section>
 
-  <section class="hub-grid">
-    <a class="game-tile game-tile-live" href="mongolia-100.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Mongolia 100</h2>
-      <p class="game-tile-copy">
-        Build a streak by answering Mongolia fact cards without repeats inside a cycle.
-      </p>
-      <div class="game-tile-meta">
-        <span>100 facts</span>
-        <span>Streak mode</span>
-        <span>Daily play</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="province-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Province Guessr</h2>
-      <p class="game-tile-copy">
-        Click the correct aimag on an interactive Mongolia map and keep the province streak alive.
-      </p>
-      <div class="game-tile-meta">
-        <span>21 aimags</span>
-        <span>Map play</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live" href="landmark-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Landmark Guessr</h2>
-      <p class="game-tile-copy">
-        Read the landmark prompt, place it on the map, and chain together a full location streak.
-      </p>
-      <div class="game-tile-meta">
-        <span>11 landmarks</span>
-        <span>Map precision</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="ger-puzzle.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Ger Builder</h2>
-      <p class="game-tile-copy">
-        Learn the order of building a Mongolian ger by placing each structural piece and cover in sequence.
-      </p>
-      <div class="game-tile-meta">
-        <span>7 build steps</span>
-        <span>Animated lesson</span>
-        <span>Educational play</span>
-      </div>
-    </a>
-
-    <article class="game-tile game-tile-soon">
-      <p class="game-tile-label">Coming soon</p>
-      <h2 class="anchored">History Sprint</h2>
-      <p class="game-tile-copy">
-        Placeholder slot for a future timeline or historical fact guessing game.
-      </p>
+  <section class="stats-strip">
+    <article class="stat-card">
+      <p class="stat-label">Current streak</p>
+      <p class="stat-value" id="landmarkStreakValue">0</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Best streak</p>
+      <p class="stat-value" id="landmarkBestValue">0</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Run progress</p>
+      <p class="stat-value" id="landmarkProgressValue">0 / 11</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Remaining</p>
+      <p class="stat-value" id="landmarkRemainingValue">11</p>
     </article>
   </section>
+
+  <section class="province-grid page-columns page-full">
+    <article class="province-panel">
+      <div class="question-meta">
+        <span class="meta-pill">Target landmark</span>
+        <span class="meta-pill subtle" id="landmarkIndexPill">Pick 1 of 11</span>
+      </div>
+      <h2 id="landmarkPrompt" class="anchored">Loading landmark...</h2>
+      <p class="question-lead" id="landmarkLead">
+        Click the map where you think the landmark sits. You do not need to hit the exact pixel, but
+        you do need to be close.
+      </p>
+      <div class="map-shell">
+        <div class="map-frame" id="landmarkMapFrame">
+          <div class="map-loading" id="landmarkMapLoading">Drawing Mongolia...</div>
+          <svg id="landmarkMap" class="province-map landmark-map" viewbox="0 0 900 640" aria-label="Mongolia landmark map"></svg>
+          <div class="feedback-panel province-popup" id="landmarkFeedbackPanel" hidden="">
+            <p class="feedback-result" id="landmarkFeedbackResult"></p>
+            <p class="feedback-fact" id="landmarkFeedbackText"></p>
+            <button class="primary-button" id="landmarkContinueButton" type="button">Next landmark</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-actions">
+        <button class="ghost-button" id="landmarkRestartButton" type="button">Restart run</button>
+      </div>
+    </article>
+
+    <aside class="info-panel">
+      <h3 class="anchored">How it works</h3>
+      <ul class="rules-list">
+        <li>Each run shuffles the landmark deck into a new random order.</li>
+        <li>The same landmark never repeats until the run is reset.</li>
+        <li>Correct clicks keep the streak and move to the next landmark.</li>
+        <li>A wrong click ends the streak and starts a fresh landmark order.</li>
+        <li>The map shows both your click and the correct location after each guess.</li>
+      </ul>
+      <div class="mini-panel">
+        <p class="mini-label">Current run</p>
+        <p id="landmarkRunSummary">Preparing the landmark sequence...</p>
+      </div>
+    </aside>
+  </section>
 </div>
+
+<dialog id="landmarkWinnerDialog" class="winner-dialog">
+  <div class="winner-content">
+    <p class="eyebrow">Map Cleared</p>
+    <h2 class="anchored">You found every landmark in the deck.</h2>
+    <p id="landmarkWinnerMessage">Restart to play another landmark run.</p>
+    <div class="winner-actions">
+      <button class="primary-button" id="landmarkWinnerRestartButton" type="button">Play another run</button>
+      <a class="ghost-button" href="index.html">All games</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="landmark-guessr.js"></script>
 
 
 

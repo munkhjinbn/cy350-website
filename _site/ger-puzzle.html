@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>All Games – Mongolia Games</title>
+<title>Ger Builder – Mongolia Games</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -109,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Landmark Guessr</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ger-puzzle.html"> 
+    <a class="nav-link active" href="./ger-puzzle.html" aria-current="page"> 
 <span class="menu-text">Ger Builder</span></a>
   </li>  
   <li class="nav-item">
@@ -129,11 +129,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">All Games</h1>
+<h1 class="title">Ger Builder</h1>
 </div>
 
 
@@ -150,78 +150,221 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="mongolia-shell hub-shell">
-  <section class="hub-hero">
-    <p class="archive-eyebrow">Game Library</p>
-    <h1>All Games</h1>
-    <p class="hub-lead">
-      A growing set of Mongolia-focused games and quick geography challenges. Start with the four
-      live games below, then use the reserved slots as the library expands.
-    </p>
+<div class="mongolia-shell province-shell ger-shell page-columns page-full">
+  <section class="hero-panel province-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Educational Build Puzzle</p>
+      <h1>Ger Builder</h1>
+      <p class="hero-text">
+        Learn how a traditional Mongolian ger comes together piece by piece. Pick the next part in the
+        correct assembly order, watch it animate into place, and keep going until the dwelling is complete.
+      </p>
+      <div class="hero-chips">
+        <span class="chip">7 build steps</span>
+        <span class="chip">Animated assembly</span>
+        <span class="chip">Try again on mistakes</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="date-badge" id="gerStatusBadge">Loading build lesson...</div>
+      <a class="fact-link-card" href="index.html">
+        <p class="mini-label">All games</p>
+        <h2 class="anchored">Back to the launcher.</h2>
+        <p class="motif-note">Return to the game hub or jump into the Mongolia fact and map games.</p>
+      </a>
+    </div>
   </section>
 
-  <section class="hub-grid">
-    <a class="game-tile game-tile-live" href="mongolia-100.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Mongolia 100</h2>
-      <p class="game-tile-copy">
-        Build a streak by answering Mongolia fact cards without repeats inside a cycle.
-      </p>
-      <div class="game-tile-meta">
-        <span>100 facts</span>
-        <span>Streak mode</span>
-        <span>Daily play</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="province-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Province Guessr</h2>
-      <p class="game-tile-copy">
-        Click the correct aimag on an interactive Mongolia map and keep the province streak alive.
-      </p>
-      <div class="game-tile-meta">
-        <span>21 aimags</span>
-        <span>Map play</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live" href="landmark-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Landmark Guessr</h2>
-      <p class="game-tile-copy">
-        Read the landmark prompt, place it on the map, and chain together a full location streak.
-      </p>
-      <div class="game-tile-meta">
-        <span>11 landmarks</span>
-        <span>Map precision</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="ger-puzzle.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Ger Builder</h2>
-      <p class="game-tile-copy">
-        Learn the order of building a Mongolian ger by placing each structural piece and cover in sequence.
-      </p>
-      <div class="game-tile-meta">
-        <span>7 build steps</span>
-        <span>Animated lesson</span>
-        <span>Educational play</span>
-      </div>
-    </a>
-
-    <article class="game-tile game-tile-soon">
-      <p class="game-tile-label">Coming soon</p>
-      <h2 class="anchored">History Sprint</h2>
-      <p class="game-tile-copy">
-        Placeholder slot for a future timeline or historical fact guessing game.
-      </p>
+  <section class="stats-strip">
+    <article class="stat-card">
+      <p class="stat-label">Steps placed</p>
+      <p class="stat-value" id="gerProgressValue">0 / 7</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Next step</p>
+      <p class="stat-value ger-compact-value" id="gerNextValue">Door frame</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Mistakes</p>
+      <p class="stat-value" id="gerMistakeValue">0</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Lesson mode</p>
+      <p class="stat-value ger-compact-value" id="gerModeValue">Educational</p>
     </article>
   </section>
+
+  <section class="ger-grid page-columns page-full">
+    <article class="province-panel ger-panel">
+      <div class="question-meta">
+        <span class="meta-pill">Assembly lesson</span>
+        <span class="meta-pill subtle" id="gerIndexPill">Step 1 of 7</span>
+      </div>
+      <h2 id="gerPrompt" class="anchored">Which piece comes first when building the ger frame?</h2>
+      <p class="question-lead" id="gerLead">
+        Choose the next correct part. Wrong choices do not reset the lesson; they just ask you to try again.
+      </p>
+
+      <div class="ger-lesson-grid">
+        <div class="ger-stage-wrap">
+          <div class="ger-stage" id="gerStage">
+            <svg id="gerIllustration" class="ger-illustration" viewbox="0 0 760 520" aria-label="Animated ger construction diagram">
+              <defs>
+                <lineargradient id="gerSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#f8f0dc"></stop>
+                  <stop offset="100%" stop-color="#e9efe8"></stop>
+                </lineargradient>
+                <lineargradient id="gerWood" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#d86f48"></stop>
+                  <stop offset="100%" stop-color="#b64a34"></stop>
+                </lineargradient>
+                <lineargradient id="gerFelt" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fff7eb"></stop>
+                  <stop offset="100%" stop-color="#ebdcc2"></stop>
+                </lineargradient>
+                <lineargradient id="gerRoof" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#fffaf0"></stop>
+                  <stop offset="100%" stop-color="#e3cfab"></stop>
+                </lineargradient>
+              </defs>
+
+              <rect x="0" y="0" width="760" height="520" fill="url(#gerSky)"></rect>
+              <ellipse cx="380" cy="446" rx="252" ry="24" class="ger-shadow"></ellipse>
+              <ellipse cx="380" cy="430" rx="276" ry="52" class="ger-ground"></ellipse>
+
+              <g id="gerStep-khana" class="ger-piece-visual">
+                <g class="ger-piece-art">
+                  <ellipse cx="380" cy="314" rx="226" ry="30" class="ger-wall-rim"></ellipse>
+                  <path d="M154 314 L154 384" class="ger-wall-outline"></path>
+                  <path d="M606 314 L606 384" class="ger-wall-outline"></path>
+                  <ellipse cx="380" cy="384" rx="226" ry="30" class="ger-wall-rim"></ellipse>
+                  <g class="ger-khana-lattice">
+                    <path d="M170 384 L216 314 M200 390 L250 314 M232 392 L286 314 M266 394 L324 314 M496 314 L550 392 M536 314 L584 388 M462 314 L512 392 M428 314 L474 392"></path>
+                    <path d="M214 392 L170 314 M250 392 L200 314 M286 392 L232 314 M324 392 L266 314 M550 314 L496 392 M584 314 L536 392 M512 314 L462 392 M474 314 L428 392"></path>
+                  </g>
+                </g>
+              </g>
+
+              <g id="gerStep-bagana" class="ger-piece-visual">
+                <g class="ger-piece-art">
+                  <rect x="310" y="176" width="16" height="138" rx="8" class="ger-pole"></rect>
+                  <rect x="434" y="176" width="16" height="138" rx="8" class="ger-pole"></rect>
+                </g>
+              </g>
+
+              <g id="gerStep-toono" class="ger-piece-visual">
+                <g class="ger-piece-art">
+                  <ellipse cx="380" cy="162" rx="52" ry="20" class="ger-toono-ring"></ellipse>
+                  <ellipse cx="380" cy="162" rx="24" ry="10" class="ger-toono-hole"></ellipse>
+                  <g class="ger-toono-spokes">
+                    <path d="M328 162 H432"></path>
+                    <path d="M344 152 L416 172"></path>
+                    <path d="M344 172 L416 152"></path>
+                  </g>
+                </g>
+              </g>
+
+              <g id="gerStep-uni" class="ger-piece-visual">
+                <g class="ger-piece-art">
+                  <g class="ger-uni-set">
+                    <path d="M336 162 L186 312"></path>
+                    <path d="M350 150 L224 308"></path>
+                    <path d="M362 146 L268 304"></path>
+                    <path d="M374 144 L318 300"></path>
+                    <path d="M386 144 L442 300"></path>
+                    <path d="M398 146 L492 304"></path>
+                    <path d="M410 150 L536 308"></path>
+                    <path d="M424 162 L574 312"></path>
+                  </g>
+                </g>
+              </g>
+
+              <g id="gerStep-felt" class="ger-piece-visual">
+                <g class="ger-piece-art">
+                  <path d="M166 314 Q232 248 328 218 Q380 202 432 218 Q528 248 594 314 L576 330 Q500 316 380 312 Q260 316 184 330 Z" class="ger-roof-felt"></path>
+                  <path d="M166 314 Q380 292 594 314 L606 392 Q380 410 154 392 Z" class="ger-wall-felt"></path>
+                  <ellipse cx="380" cy="314" rx="214" ry="18" class="ger-eave-shadow"></ellipse>
+                </g>
+              </g>
+
+              <g id="gerStep-ropes" class="ger-piece-visual">
+                <g class="ger-piece-art">
+                  <ellipse cx="380" cy="338" rx="218" ry="18" class="ger-rope ger-rope-top"></ellipse>
+                  <ellipse cx="380" cy="370" rx="228" ry="20" class="ger-rope ger-rope-mid"></ellipse>
+                  <path d="M350 146 Q380 124 410 146 L400 170 Q380 184 360 170 Z" class="ger-urkh"></path>
+                  <path d="M404 146 L444 106" class="ger-urkh-line"></path>
+                </g>
+              </g>
+
+              <g id="gerStep-door" class="ger-piece-visual">
+                <g class="ger-piece-art">
+                  <rect x="328" y="286" width="104" height="118" rx="10" class="ger-door-frame"></rect>
+                  <rect x="340" y="292" width="80" height="104" rx="8" class="ger-door"></rect>
+                  <rect x="350" y="304" width="60" height="76" rx="7" class="ger-door-inner"></rect>
+                  <circle cx="398" cy="346" r="5" class="ger-door-knob"></circle>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="feedback-panel ger-inline-feedback" id="gerFeedbackPanel">
+            <p class="feedback-result" id="gerFeedbackResult">Pick the first piece to begin.</p>
+            <p class="feedback-fact" id="gerFeedbackText">
+              The lesson follows a common frame-first, cover-second sequence described by multiple ger explainers.
+            </p>
+          </div>
+        </div>
+
+        <div class="ger-pieces-panel">
+          <div class="ger-piece-list" id="gerPieceList"></div>
+          <div class="panel-actions">
+            <button class="ghost-button" id="gerResetButton" type="button">Restart lesson</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <aside class="info-panel ger-info-panel">
+      <h3 class="anchored">Step details</h3>
+      <div class="mini-panel ger-detail-card">
+        <p class="mini-label">Current part</p>
+        <h4 id="gerDetailTitle" class="anchored">Door frame</h4>
+        <p id="gerDetailBody">
+          The doorway anchors the front of the ger and traditionally faces south or southeast.
+        </p>
+      </div>
+
+      <h3 class="anchored">Research notes</h3>
+      <ul class="rules-list">
+        <li>UNESCO describes the ger as a wooden frame covered with felt and canvas, tightened with ropes.</li>
+        <li>Magnificent Mongolia lists the core structural pieces as khana, bagana, toono, uni, and khaalga.</li>
+        <li>Its assembly description places the lattice wall and door before the center columns, crown, roof poles, and coverings.</li>
+        <li>View Mongolia and Mongolian Ways both confirm felt and canvas go on after the wooden framework is lashed together.</li>
+      </ul>
+
+      <div class="mini-panel">
+        <p class="mini-label">Sources used</p>
+        <p class="motif-note">
+          UNESCO Intangible Cultural Heritage; Magnificent Mongolia; View Mongolia; Mongolian Ways.
+        </p>
+      </div>
+    </aside>
+  </section>
 </div>
+
+<dialog id="gerWinnerDialog" class="winner-dialog">
+  <div class="winner-content">
+    <p class="eyebrow">Lesson complete</p>
+    <h2 class="anchored">You assembled the ger in order.</h2>
+    <p id="gerWinnerMessage">Restart the lesson to practice the sequence again.</p>
+    <div class="winner-actions">
+      <button class="primary-button" id="gerWinnerRestartButton" type="button">Build again</button>
+      <a class="ghost-button" href="index.html">All games</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="ger-puzzle.js"></script>
 
 
 

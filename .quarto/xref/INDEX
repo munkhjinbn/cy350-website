@@ -7,5 +7,17 @@
   },
   "all-games.qmd": {
     "all-games.html": "fd9b9a74"
+  },
+  "mongolia-100.qmd": {
+    "mongolia-100.html": "5edc18ef"
+  },
+  "province-guessr.qmd": {
+    "province-guessr.html": "597a3f09"
+  },
+  "landmark-guessr.qmd": {
+    "landmark-guessr.html": "236488f5"
+  },
+  "ger-puzzle.qmd": {
+    "ger-puzzle.html": "616ccde3"
   }
 }

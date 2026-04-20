@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>All Games – Mongolia Games</title>
+<title>Province Guessr – Mongolia Games</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Mongolia 100</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./province-guessr.html"> 
+    <a class="nav-link active" href="./province-guessr.html" aria-current="page"> 
 <span class="menu-text">Province Guessr</span></a>
   </li>  
   <li class="nav-item">
@@ -129,11 +129,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">All Games</h1>
+<h1 class="title">Province Guessr</h1>
 </div>
 
 
@@ -150,78 +150,106 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="mongolia-shell hub-shell">
-  <section class="hub-hero">
-    <p class="archive-eyebrow">Game Library</p>
-    <h1>All Games</h1>
-    <p class="hub-lead">
-      A growing set of Mongolia-focused games and quick geography challenges. Start with the four
-      live games below, then use the reserved slots as the library expands.
-    </p>
+<div class="mongolia-shell province-shell page-columns page-full">
+  <section class="hero-panel province-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Interactive Mongolia Map Game</p>
+      <h1>Province Guessr</h1>
+      <p class="hero-text">
+        Click the correct aimag on the map. Every correct pick grows your streak. A wrong guess
+        ends the run and reshuffles all 21 provinces into a fresh sequence.
+      </p>
+      <div class="hero-chips">
+        <span class="chip">21 aimags</span>
+        <span class="chip">No repeats in a run</span>
+        <span class="chip">3D hover map</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="date-badge" id="provinceStatusBadge">Loading province run...</div>
+      <a class="fact-link-card" href="index.html">
+        <p class="mini-label">All games</p>
+        <h2 class="anchored">Back to the launcher.</h2>
+        <p class="motif-note">Jump back to the game hub or switch over to Mongolia 100.</p>
+      </a>
+    </div>
   </section>
 
-  <section class="hub-grid">
-    <a class="game-tile game-tile-live" href="mongolia-100.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Mongolia 100</h2>
-      <p class="game-tile-copy">
-        Build a streak by answering Mongolia fact cards without repeats inside a cycle.
-      </p>
-      <div class="game-tile-meta">
-        <span>100 facts</span>
-        <span>Streak mode</span>
-        <span>Daily play</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="province-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Province Guessr</h2>
-      <p class="game-tile-copy">
-        Click the correct aimag on an interactive Mongolia map and keep the province streak alive.
-      </p>
-      <div class="game-tile-meta">
-        <span>21 aimags</span>
-        <span>Map play</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live" href="landmark-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Landmark Guessr</h2>
-      <p class="game-tile-copy">
-        Read the landmark prompt, place it on the map, and chain together a full location streak.
-      </p>
-      <div class="game-tile-meta">
-        <span>11 landmarks</span>
-        <span>Map precision</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="ger-puzzle.html">
-      <p class="game-tile-label">Live now</p>
-      <h2 class="anchored">Ger Builder</h2>
-      <p class="game-tile-copy">
-        Learn the order of building a Mongolian ger by placing each structural piece and cover in sequence.
-      </p>
-      <div class="game-tile-meta">
-        <span>7 build steps</span>
-        <span>Animated lesson</span>
-        <span>Educational play</span>
-      </div>
-    </a>
-
-    <article class="game-tile game-tile-soon">
-      <p class="game-tile-label">Coming soon</p>
-      <h2 class="anchored">History Sprint</h2>
-      <p class="game-tile-copy">
-        Placeholder slot for a future timeline or historical fact guessing game.
-      </p>
+  <section class="stats-strip">
+    <article class="stat-card">
+      <p class="stat-label">Current streak</p>
+      <p class="stat-value" id="provinceStreakValue">0</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Best streak</p>
+      <p class="stat-value" id="provinceBestValue">0</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Run progress</p>
+      <p class="stat-value" id="provinceProgressValue">0 / 21</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Remaining</p>
+      <p class="stat-value" id="provinceRemainingValue">21</p>
     </article>
   </section>
+
+  <section class="province-grid page-columns page-full">
+    <article class="province-panel">
+      <div class="question-meta">
+        <span class="meta-pill">Target province</span>
+        <span class="meta-pill subtle" id="provinceIndexPill">Pick 1 of 21</span>
+      </div>
+      <h2 id="provincePrompt" class="anchored">Loading aimag...</h2>
+      <p class="question-lead" id="provinceLead">
+        Hover a province to raise it from the map, then click the area you think matches the prompt.
+      </p>
+      <div class="map-shell">
+        <div class="map-frame" id="provinceMapFrame">
+          <div class="map-loading" id="provinceMapLoading">Drawing Mongolia...</div>
+          <svg id="provinceMap" class="province-map" viewbox="0 0 900 640" aria-label="Mongolia province map"></svg>
+          <div class="feedback-panel province-popup" id="provinceFeedbackPanel" hidden="">
+            <p class="feedback-result" id="provinceFeedbackResult"></p>
+            <p class="feedback-fact" id="provinceFeedbackText"></p>
+            <button class="primary-button" id="provinceContinueButton" type="button">Next province</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-actions">
+        <button class="ghost-button" id="provinceRestartButton" type="button">Restart run</button>
+      </div>
+    </article>
+
+    <aside class="info-panel">
+      <h3 class="anchored">How it works</h3>
+      <ul class="rules-list">
+        <li>Each run shuffles all 21 aimags into a random order.</li>
+        <li>The same province never appears twice in a run.</li>
+        <li>A wrong click ends the streak and starts a new 21-province order.</li>
+        <li>The map stays interactive, with hover lift and feedback coloring.</li>
+        <li>Clear all 21 to finish the run and start a new one.</li>
+      </ul>
+      <div class="mini-panel">
+        <p class="mini-label">Current run</p>
+        <p id="provinceRunSummary">Preparing the province sequence...</p>
+      </div>
+    </aside>
+  </section>
 </div>
+
+<dialog id="provinceWinnerDialog" class="winner-dialog">
+  <div class="winner-content">
+    <p class="eyebrow">Map Cleared</p>
+    <h2 class="anchored">You found all 21 aimags.</h2>
+    <p id="provinceWinnerMessage">Restart to get a fresh province order.</p>
+    <div class="winner-actions">
+      <button class="primary-button" id="provinceWinnerRestartButton" type="button">Play another run</button>
+      <a class="ghost-button" href="index.html">All games</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="province-guessr.js"></script>
 
 
 

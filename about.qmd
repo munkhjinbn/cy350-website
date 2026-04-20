@@ -21,7 +21,7 @@ toc: false
           <span>Search facts</span>
           <input id="factSearch" type="search" placeholder="Search by keyword, answer, or category" />
         </label>
-        <a class="ghost-button archive-back" href="index.html">Back to game</a>
+        <a class="ghost-button archive-back" href="mongolia-100.html">Back to game</a>
       </div>
     </div>
     <div class="facts-grid" id="factsGrid"></div>

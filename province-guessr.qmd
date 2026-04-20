@@ -1,0 +1,108 @@
+---
+title: "Province Guessr"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<div class="mongolia-shell province-shell">
+  <section class="hero-panel province-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Interactive Mongolia Map Game</p>
+      <h1>Province Guessr</h1>
+      <p class="hero-text">
+        Click the correct aimag on the map. Every correct pick grows your streak. A wrong guess
+        ends the run and reshuffles all 21 provinces into a fresh sequence.
+      </p>
+      <div class="hero-chips">
+        <span class="chip">21 aimags</span>
+        <span class="chip">No repeats in a run</span>
+        <span class="chip">3D hover map</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="date-badge" id="provinceStatusBadge">Loading province run...</div>
+      <a class="fact-link-card" href="index.html">
+        <p class="mini-label">All games</p>
+        <h2>Back to the launcher.</h2>
+        <p class="motif-note">Jump back to the game hub or switch over to Mongolia 100.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="stats-strip">
+    <article class="stat-card">
+      <p class="stat-label">Current streak</p>
+      <p class="stat-value" id="provinceStreakValue">0</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Best streak</p>
+      <p class="stat-value" id="provinceBestValue">0</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Run progress</p>
+      <p class="stat-value" id="provinceProgressValue">0 / 21</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-label">Remaining</p>
+      <p class="stat-value" id="provinceRemainingValue">21</p>
+    </article>
+  </section>
+
+  <section class="province-grid">
+    <article class="province-panel">
+      <div class="question-meta">
+        <span class="meta-pill">Target province</span>
+        <span class="meta-pill subtle" id="provinceIndexPill">Pick 1 of 21</span>
+      </div>
+      <h2 id="provincePrompt">Loading aimag...</h2>
+      <p class="question-lead" id="provinceLead">
+        Hover a province to raise it from the map, then click the area you think matches the prompt.
+      </p>
+      <div class="map-shell">
+        <div class="map-frame" id="provinceMapFrame">
+          <div class="map-loading" id="provinceMapLoading">Drawing Mongolia...</div>
+          <svg id="provinceMap" class="province-map" viewBox="0 0 900 640" aria-label="Mongolia province map"></svg>
+          <div class="feedback-panel province-popup" id="provinceFeedbackPanel" hidden>
+            <p class="feedback-result" id="provinceFeedbackResult"></p>
+            <p class="feedback-fact" id="provinceFeedbackText"></p>
+            <button class="primary-button" id="provinceContinueButton" type="button">Next province</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-actions">
+        <button class="ghost-button" id="provinceRestartButton" type="button">Restart run</button>
+      </div>
+    </article>
+
+    <aside class="info-panel">
+      <h3>How it works</h3>
+      <ul class="rules-list">
+        <li>Each run shuffles all 21 aimags into a random order.</li>
+        <li>The same province never appears twice in a run.</li>
+        <li>A wrong click ends the streak and starts a new 21-province order.</li>
+        <li>The map stays interactive, with hover lift and feedback coloring.</li>
+        <li>Clear all 21 to finish the run and start a new one.</li>
+      </ul>
+      <div class="mini-panel">
+        <p class="mini-label">Current run</p>
+        <p id="provinceRunSummary">Preparing the province sequence...</p>
+      </div>
+    </aside>
+  </section>
+</div>
+
+<dialog id="provinceWinnerDialog" class="winner-dialog">
+  <div class="winner-content">
+    <p class="eyebrow">Map Cleared</p>
+    <h2>You found all 21 aimags.</h2>
+    <p id="provinceWinnerMessage">Restart to get a fresh province order.</p>
+    <div class="winner-actions">
+      <button class="primary-button" id="provinceWinnerRestartButton" type="button">Play another run</button>
+      <a class="ghost-button" href="index.html">All games</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="province-guessr.js"></script>
+```

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mongolia 100</title>
+<title>All Games – Mongolia Games</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Mongolia 100</span>
+    <span class="navbar-title">Mongolia Games</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -93,12 +93,24 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./all-games.html"> 
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">All Games</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Game</span></a>
+    <a class="nav-link" href="./mongolia-100.html"> 
+<span class="menu-text">Mongolia 100</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./province-guessr.html"> 
+<span class="menu-text">Province Guessr</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./landmark-guessr.html"> 
+<span class="menu-text">Landmark Guessr</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ger-puzzle.html"> 
+<span class="menu-text">Ger Builder</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
@@ -117,11 +129,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content page-columns page-full column-page" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mongolia 100</h1>
+<h1 class="title">All Games</h1>
 </div>
 
 
@@ -138,119 +150,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="mongolia-shell page-columns page-full">
-  <section class="hero-panel">
-    <div class="hero-copy">
-      <p class="eyebrow">Daily Mongolia Fact Game</p>
-      <h1>Mongolia 100</h1>
-      <p class="hero-text">
-        Work through 100 Mongolia facts, keep your streak alive, and clear the full trail
-        without seeing the same question twice in one cycle.
-      </p>
-      <div class="hero-chips">
-        <span class="chip">100 fact cards</span>
-        <span class="chip">No repeats in a run</span>
-        <span class="chip">Streak saved locally</span>
-      </div>
-    </div>
-    <div class="hero-side">
-      <div class="date-badge" id="todayBadge">Loading today's trail...</div>
-      <a class="fact-link-card" href="all-games.html">
-        <p class="mini-label">All games</p>
-        <h2 class="anchored">Browse the game hub and future releases.</h2>
-        <p class="motif-note">Use the launcher page to jump between live games and upcoming slots.</p>
-      </a>
-      <a class="fact-link-card" href="about.html">
-        <p class="mini-label">Fact archive</p>
-        <h2 class="anchored">Browse all 100 facts on a separate page.</h2>
-        <p class="motif-note">Use the archive if you want to study before or after a streak run.</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="stats-strip">
-    <article class="stat-card">
-      <p class="stat-label">Current streak</p>
-      <p class="stat-value" id="streakValue">0</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-label">Best streak</p>
-      <p class="stat-value" id="bestValue">0</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-label">Progress this cycle</p>
-      <p class="stat-value" id="progressValue">0 / 100</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-label">Cards left</p>
-      <p class="stat-value" id="remainingValue">100</p>
-    </article>
-  </section>
-
-  <section class="play-grid page-columns page-full">
-    <article class="game-panel">
-      <div class="question-meta">
-        <span class="meta-pill" id="categoryPill">Category</span>
-        <span class="meta-pill subtle" id="questionIndexPill">Card 1</span>
-      </div>
-      <h2 id="questionText" class="anchored">Loading question...</h2>
-      <p class="question-lead" id="questionLead">
-        Pick the best answer. Correct answers grow your streak. Wrong answers reset the streak,
-        but the card still retires so you will not see it again in the same run.
-      </p>
-      <div class="options-grid" id="optionsGrid"></div>
-      <div class="feedback-panel" id="feedbackPanel" hidden="">
-        <p class="feedback-result" id="feedbackResult"></p>
-        <p class="feedback-fact" id="feedbackFact"></p>
-        <button class="primary-button" id="continueButton" type="button">Next fact</button>
-      </div>
-      <div class="panel-actions">
-        <button class="ghost-button" id="restartButton" type="button">Restart cycle</button>
-      </div>
-    </article>
-
-    <aside class="info-panel">
-      <h3 class="anchored">How it works</h3>
-      <ul class="rules-list">
-        <li>Each cycle uses all 100 fact cards once.</li>
-        <li>Cards never repeat inside a cycle, even after a wrong answer.</li>
-        <li>Your streak counts only consecutive correct answers.</li>
-        <li>Finishing the deck makes you the winner and unlocks a restart prompt.</li>
-        <li>A fresh reshuffle starts the next time you restart a completed run.</li>
-      </ul>
-      <div class="mini-panel">
-        <p class="mini-label">Current run</p>
-        <p id="runSummary">Preparing the question trail...</p>
-      </div>
-    </aside>
-  </section>
-
-  <section class="source-panel">
-    <p class="eyebrow">Source Notes</p>
-    <p>
-      Fact prompts were compiled from general reference material on Mongolia, including
-      Britannica, UNESCO listings, the CIA World Factbook, and Mongolia-focused culture and
-      travel references. The game presents them as short quiz cards rather than quoted source text.
+<div class="mongolia-shell hub-shell">
+  <section class="hub-hero">
+    <p class="archive-eyebrow">Game Library</p>
+    <h1>All Games</h1>
+    <p class="hub-lead">
+      A growing set of Mongolia-focused games and quick geography challenges. Start with the four
+      live games below, then use the reserved slots as the library expands.
     </p>
+  </section>
+
+  <section class="hub-grid">
+    <a class="game-tile game-tile-live" href="mongolia-100.html">
+      <p class="game-tile-label">Live now</p>
+      <h2 class="anchored">Mongolia 100</h2>
+      <p class="game-tile-copy">
+        Build a streak by answering Mongolia fact cards without repeats inside a cycle.
+      </p>
+      <div class="game-tile-meta">
+        <span>100 facts</span>
+        <span>Streak mode</span>
+        <span>Daily play</span>
+      </div>
+    </a>
+
+    <a class="game-tile game-tile-live game-tile-accent" href="province-guessr.html">
+      <p class="game-tile-label">Live now</p>
+      <h2 class="anchored">Province Guessr</h2>
+      <p class="game-tile-copy">
+        Click the correct aimag on an interactive Mongolia map and keep the province streak alive.
+      </p>
+      <div class="game-tile-meta">
+        <span>21 aimags</span>
+        <span>Map play</span>
+        <span>No repeats in a run</span>
+      </div>
+    </a>
+
+    <a class="game-tile game-tile-live" href="landmark-guessr.html">
+      <p class="game-tile-label">Live now</p>
+      <h2 class="anchored">Landmark Guessr</h2>
+      <p class="game-tile-copy">
+        Read the landmark prompt, place it on the map, and chain together a full location streak.
+      </p>
+      <div class="game-tile-meta">
+        <span>11 landmarks</span>
+        <span>Map precision</span>
+        <span>No repeats in a run</span>
+      </div>
+    </a>
+
+    <a class="game-tile game-tile-live game-tile-accent" href="ger-puzzle.html">
+      <p class="game-tile-label">Live now</p>
+      <h2 class="anchored">Ger Builder</h2>
+      <p class="game-tile-copy">
+        Learn the order of building a Mongolian ger by placing each structural piece and cover in sequence.
+      </p>
+      <div class="game-tile-meta">
+        <span>7 build steps</span>
+        <span>Animated lesson</span>
+        <span>Educational play</span>
+      </div>
+    </a>
+
+    <article class="game-tile game-tile-soon">
+      <p class="game-tile-label">Coming soon</p>
+      <h2 class="anchored">History Sprint</h2>
+      <p class="game-tile-copy">
+        Placeholder slot for a future timeline or historical fact guessing game.
+      </p>
+    </article>
   </section>
 </div>
-
-<dialog id="winnerDialog" class="winner-dialog">
-  <div class="winner-content">
-    <p class="eyebrow">Trail Complete</p>
-    <h2 class="anchored">You cleared all 100 Mongolia facts.</h2>
-    <p id="winnerMessage">
-      Your current cycle is complete. Restart to reshuffle the deck and play again.
-    </p>
-    <div class="winner-actions">
-      <button class="primary-button" id="winnerRestartButton" type="button">Restart trail</button>
-      <button class="ghost-button" id="winnerCloseButton" type="button">View fact archive</button>
-    </div>
-  </div>
-</dialog>
-
-
-<script src="game.js"></script>
 
 
 
