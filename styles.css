@@ -571,7 +571,7 @@ body {
 }
 
 .ger-piece-visual.is-animating .ger-piece-art {
-  transform: translateY(-4px) scale(1.015);
+  transform: translateY(-8px) scale(1.015);
 }
 
 .ger-piece-visual.is-animating .ger-door,
