@@ -1,0 +1,64 @@
+---
+title: "Steppe Wildlife"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<div class="mongolia-shell province-shell">
+  <section class="hero-panel province-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Quick Mongolia Quiz</p>
+      <h1>Steppe Wildlife</h1>
+      <p class="hero-text">Test your knowledge of iconic animals found in Mongolia's steppes, mountains, and deserts.</p>
+      <div class="hero-chips"><span class="chip">10 wildlife cards</span><span class="chip">No repeats in a run</span><span class="chip">Streak scoring</span></div>
+    </div>
+    <div class="hero-side">
+      <div class="date-badge" id="miniStatusBadge">Loading wildlife run...</div>
+      <a class="fact-link-card" href="index.html"><p class="mini-label">All games</p><h2>Back to the launcher.</h2></a>
+    </div>
+  </section>
+  <section class="stats-strip">
+    <article class="stat-card"><p class="stat-label">Current streak</p><p class="stat-value" id="miniStreakValue">0</p></article>
+    <article class="stat-card"><p class="stat-label">Best streak</p><p class="stat-value" id="miniBestValue">0</p></article>
+    <article class="stat-card"><p class="stat-label">Run progress</p><p class="stat-value" id="miniProgressValue">0 / 10</p></article>
+    <article class="stat-card"><p class="stat-label">Remaining</p><p class="stat-value" id="miniRemainingValue">10</p></article>
+  </section>
+  <section class="play-grid">
+    <article class="game-panel">
+      <div class="question-meta"><span class="meta-pill">Wildlife challenge</span><span class="meta-pill subtle" id="miniIndexPill">Card 1 of 10</span></div>
+      <h2 id="miniPrompt">Loading question...</h2>
+      <p class="question-lead" id="miniLead"></p>
+      <div class="options-grid" id="miniOptionsGrid"></div>
+      <div class="feedback-panel" id="miniFeedbackPanel" hidden>
+        <p class="feedback-result" id="miniFeedbackResult"></p>
+        <p class="feedback-fact" id="miniFeedbackText"></p>
+        <button class="primary-button" id="miniContinueButton" type="button">Next card</button>
+      </div>
+      <div class="panel-actions"><button class="ghost-button" id="miniRestartButton" type="button">Restart run</button></div>
+    </article>
+    <aside class="info-panel"><h3>How it works</h3><ul class="rules-list"><li>Each card appears once per run.</li><li>Wrong answers reset streak only.</li><li>Complete all cards to finish the deck.</li></ul><div class="mini-panel"><p class="mini-label">Run summary</p><p id="miniRunSummary"></p></div></aside>
+  </section>
+</div>
+
+<script>
+window.MINI_QUIZ_CONFIG = {
+  id: "steppe-wildlife",
+  title: "Steppe Wildlife",
+  lead: "Choose the best answer about Mongolia's wildlife and habitats.",
+  questions: [
+    { question: "Which wild horse was reintroduced in Mongolia?", answer: "Takhi", options: ["Takhi", "Zebra", "Mustang", "Kiang"], detail: "Takhi is the Mongolian name for Przewalski's horse." },
+    { question: "Which big cat lives in Mongolia's high mountains?", answer: "Snow leopard", options: ["Snow leopard", "Tiger", "Cheetah", "Jaguar"], detail: "Snow leopards inhabit the Altai and other mountain ranges." },
+    { question: "Which camel species is native to the Gobi region?", answer: "Bactrian camel", options: ["Bactrian camel", "Dromedary camel", "Llama", "Alpaca"], detail: "Bactrian camels have two humps and suit cold deserts." },
+    { question: "What is Mongolia's largest wild sheep?", answer: "Argali", options: ["Argali", "Mouflon", "Ibex", "Markhor"], detail: "Argali are famous for massive curved horns." },
+    { question: "Which bird is trained by western Mongolian hunters?", answer: "Golden eagle", options: ["Golden eagle", "Falcon", "Owl", "Condor"], detail: "Kazakh eagle hunters traditionally train golden eagles." },
+    { question: "Khustain Nuruu National Park is known for protecting what?", answer: "Takhi populations", options: ["Takhi populations", "Pandas", "Polar bears", "Sea lions"], detail: "Khustain Nuruu is a flagship takhi conservation site." },
+    { question: "Which habitat covers much of Mongolia?", answer: "Steppe grassland", options: ["Steppe grassland", "Rainforest", "Mangrove", "Coral reef"], detail: "Vast steppe dominates Mongolia's landscape." },
+    { question: "Which desert stretches across southern Mongolia?", answer: "Gobi Desert", options: ["Gobi Desert", "Sahara", "Kalahari", "Atacama"], detail: "The Gobi spans southern Mongolia and northern China." },
+    { question: "What severe winter disaster can cause large livestock losses?", answer: "Dzud", options: ["Dzud", "Monsoon", "Typhoon", "El Niño"], detail: "Dzud combines cold, snow, and forage shortages." },
+    { question: "Which animal fiber drives Mongolia's cashmere industry?", answer: "Goat undercoat", options: ["Goat undercoat", "Yak wool", "Silkworm thread", "Alpaca wool"], detail: "Cashmere comes from fine underhair of goats." }
+  ]
+};
+</script>
+<script src="mini-quiz.js"></script>
+```

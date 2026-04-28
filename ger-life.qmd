@@ -1,0 +1,28 @@
+---
+title: "Ger Life"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<div class="mongolia-shell province-shell">
+  <section class="hero-panel province-hero"><div class="hero-copy"><p class="eyebrow">Quick Mongolia Quiz</p><h1>Ger Life</h1><p class="hero-text">A compact quiz on ger structure, nomadic household customs, and daily life.</p><div class="hero-chips"><span class="chip">10 culture cards</span><span class="chip">No repeats</span><span class="chip">Streak mode</span></div></div><div class="hero-side"><div class="date-badge" id="miniStatusBadge">Loading ger-life run...</div><a class="fact-link-card" href="index.html"><p class="mini-label">All games</p><h2>Back to the launcher.</h2></a></div></section>
+  <section class="stats-strip"><article class="stat-card"><p class="stat-label">Current streak</p><p class="stat-value" id="miniStreakValue">0</p></article><article class="stat-card"><p class="stat-label">Best streak</p><p class="stat-value" id="miniBestValue">0</p></article><article class="stat-card"><p class="stat-label">Run progress</p><p class="stat-value" id="miniProgressValue">0 / 10</p></article><article class="stat-card"><p class="stat-label">Remaining</p><p class="stat-value" id="miniRemainingValue">10</p></article></section>
+  <section class="play-grid"><article class="game-panel"><div class="question-meta"><span class="meta-pill">Ger culture challenge</span><span class="meta-pill subtle" id="miniIndexPill"></span></div><h2 id="miniPrompt"></h2><p class="question-lead" id="miniLead"></p><div class="options-grid" id="miniOptionsGrid"></div><div class="feedback-panel" id="miniFeedbackPanel" hidden><p class="feedback-result" id="miniFeedbackResult"></p><p class="feedback-fact" id="miniFeedbackText"></p><button class="primary-button" id="miniContinueButton" type="button">Next card</button></div><div class="panel-actions"><button class="ghost-button" id="miniRestartButton" type="button">Restart run</button></div></article><aside class="info-panel"><h3>How it works</h3><ul class="rules-list"><li>Learn practical ger and nomadic-life facts.</li><li>Cards retire after each answer.</li><li>Finish all cards to complete the deck.</li></ul><div class="mini-panel"><p class="mini-label">Run summary</p><p id="miniRunSummary"></p></div></aside></section>
+</div>
+<script>
+window.MINI_QUIZ_CONFIG = { id: "ger-life", title: "Ger Life", lead: "Choose the best answer about ger construction and household traditions.", questions: [
+{ question: "What is Mongolia's traditional portable dwelling called?", answer: "Ger", options: ["Ger", "Igloo", "Riad", "Yurt tent"], detail: "Ger is the Mongolian term for the round felt home." },
+{ question: "What structure forms the circular wall of a ger?", answer: "Khana lattice", options: ["Khana lattice", "Stone blocks", "Metal frame", "Bamboo weave"], detail: "Khana refers to the folding lattice wall sections." },
+{ question: "What is the central roof ring called?", answer: "Toono", options: ["Toono", "Morin", "Tsolmon", "Aruul"], detail: "The toono is the crown opening at the top." },
+{ question: "What are the roof poles connecting wall to crown called?", answer: "Uni", options: ["Uni", "Bokh", "Ovoo", "Shagai"], detail: "Uni poles radiate up toward the toono." },
+{ question: "Which direction does a ger door often face traditionally?", answer: "South or southeast", options: ["South or southeast", "Northwest", "Due east only", "Any random direction"], detail: "Door orientation often favors sun and wind considerations." },
+{ question: "What covering is commonly layered over the wooden frame?", answer: "Felt", options: ["Felt", "Concrete", "Glass", "Plastic panels"], detail: "Felt insulation is key for seasonal climate control." },
+{ question: "Why is the ger ideal for nomadic life?", answer: "It can be dismantled and moved", options: ["It can be dismantled and moved", "It never needs maintenance", "It is permanently anchored", "It floats across rivers"], detail: "Portable structure supports seasonal relocation." },
+{ question: "What is suutei tsai?", answer: "Salted milk tea", options: ["Salted milk tea", "Fried dough", "Dried curd", "Fermented horse milk"], detail: "Suutei tsai is a staple tea served in many homes." },
+{ question: "What snack made from dried curds is common in Mongolian homes?", answer: "Aaruul", options: ["Aaruul", "Kimchi", "Soba", "Baklava"], detail: "Aaruul keeps well and is made from dairy curds." },
+{ question: "What is an ovoo?", answer: "A sacred cairn", options: ["A sacred cairn", "A saddle blanket", "A roof pole", "A horse race"], detail: "Ovoos are ritual stone piles seen across Mongolia." }
+]};
+</script>
+<script src="mini-quiz.js"></script>
+```

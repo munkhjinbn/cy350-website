@@ -1,33 +1,47 @@
-project:
-  type: website
-  resources:
-    - mongolia-adm1.geojson
-    - game.js
-    - province-guessr.js
-    - landmark-guessr.js
-    - ger-puzzle.js
-
-website:
-  title: "Mongolia Games"
-  navbar:
-    left:
-      - href: index.qmd
-        text: All Games
-      - href: mongolia-100.qmd
-        text: Mongolia 100
-      - href: province-guessr.qmd
-        text: Province Guessr
-      - href: landmark-guessr.qmd
-        text: Landmark Guessr
-      - href: ger-puzzle.qmd
-        text: Ger Builder
-      - href: about.qmd
-        text: Facts
-
-format:
-  html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
-    toc: false
+diff --git a/_quarto.yml b/_quarto.yml
+index cfd43403c58e51da16144b4352d0f5b70f095d6b..a163a50fc361757788ddddddfb467dbb7409e35c 100644
+--- a/_quarto.yml
++++ b/_quarto.yml
+@@ -1,33 +1,42 @@
+ project:
+   type: website
+   resources:
+     - mongolia-adm1.geojson
+     - game.js
+     - province-guessr.js
+     - landmark-guessr.js
+     - ger-puzzle.js
++    - mini-quiz.js
+ 
+ website:
+   title: "Mongolia Games"
+   navbar:
+     left:
+       - href: index.qmd
+         text: All Games
+       - href: mongolia-100.qmd
+         text: Mongolia 100
+       - href: province-guessr.qmd
+         text: Province Guessr
+       - href: landmark-guessr.qmd
+         text: Landmark Guessr
+       - href: ger-puzzle.qmd
+         text: Ger Builder
++      - href: steppe-wildlife.qmd
++        text: Steppe Wildlife
++      - href: naadam-arena.qmd
++        text: Naadam Arena
++      - href: empire-timeline.qmd
++        text: Empire Timeline
++      - href: ger-life.qmd
++        text: Ger Life
+       - href: about.qmd
+         text: Facts
+ 
+ format:
+   html:
+     theme:
+       - cosmo
+       - brand
+     css: styles.css
+     toc: false

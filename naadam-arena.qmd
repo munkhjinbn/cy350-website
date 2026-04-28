@@ -1,0 +1,28 @@
+---
+title: "Naadam Arena"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<div class="mongolia-shell province-shell">
+  <section class="hero-panel province-hero"><div class="hero-copy"><p class="eyebrow">Quick Mongolia Quiz</p><h1>Naadam Arena</h1><p class="hero-text">Race through Mongolia's festival traditions with a fast deck focused on Naadam.</p><div class="hero-chips"><span class="chip">10 festival cards</span><span class="chip">No repeats</span><span class="chip">Streak play</span></div></div><div class="hero-side"><div class="date-badge" id="miniStatusBadge">Loading Naadam run...</div><a class="fact-link-card" href="index.html"><p class="mini-label">All games</p><h2>Back to the launcher.</h2></a></div></section>
+  <section class="stats-strip"><article class="stat-card"><p class="stat-label">Current streak</p><p class="stat-value" id="miniStreakValue">0</p></article><article class="stat-card"><p class="stat-label">Best streak</p><p class="stat-value" id="miniBestValue">0</p></article><article class="stat-card"><p class="stat-label">Run progress</p><p class="stat-value" id="miniProgressValue">0 / 10</p></article><article class="stat-card"><p class="stat-label">Remaining</p><p class="stat-value" id="miniRemainingValue">10</p></article></section>
+  <section class="play-grid"><article class="game-panel"><div class="question-meta"><span class="meta-pill">Festival challenge</span><span class="meta-pill subtle" id="miniIndexPill"></span></div><h2 id="miniPrompt">Loading question...</h2><p class="question-lead" id="miniLead"></p><div class="options-grid" id="miniOptionsGrid"></div><div class="feedback-panel" id="miniFeedbackPanel" hidden><p class="feedback-result" id="miniFeedbackResult"></p><p class="feedback-fact" id="miniFeedbackText"></p><button class="primary-button" id="miniContinueButton" type="button">Next card</button></div><div class="panel-actions"><button class="ghost-button" id="miniRestartButton" type="button">Restart run</button></div></article><aside class="info-panel"><h3>How it works</h3><ul class="rules-list"><li>10 cards per run.</li><li>No repeated cards until restart.</li><li>Wrong answers retire card and reset streak.</li></ul><div class="mini-panel"><p class="mini-label">Run summary</p><p id="miniRunSummary"></p></div></aside></section>
+</div>
+<script>
+window.MINI_QUIZ_CONFIG = { id: "naadam-arena", title: "Naadam Arena", lead: "Pick the best answer about Naadam sports and customs.", questions: [
+{ question: "Naadam is most commonly held in which month?", answer: "July", options: ["July", "January", "April", "October"], detail: "National Naadam celebrations center around July." },
+{ question: "Which three events make up Naadam's core games?", answer: "Wrestling, archery, horse racing", options: ["Wrestling, archery, horse racing", "Boxing, fencing, rowing", "Cycling, shooting, wrestling", "Judo, sprinting, polo"], detail: "These are known as the Three Manly Games." },
+{ question: "Traditional Mongolian wrestling is called what?", answer: "Bokh", options: ["Bokh", "Sumo", "Kurash", "Lucha"], detail: "Bokh is a central Naadam event." },
+{ question: "Naadam horse races are known for what distance style?", answer: "Long open-country courses", options: ["Long open-country courses", "Short indoor tracks", "Only uphill sprints", "Water crossings"], detail: "Races emphasize endurance over long routes." },
+{ question: "Who often rides horses in Naadam races?", answer: "Child jockeys", options: ["Child jockeys", "Only adults over 25", "Robotic riders", "Teams of four"], detail: "Child jockeys are traditional in Naadam racing." },
+{ question: "Which of these is part of Naadam?", answer: "Archery", options: ["Archery", "Surfing", "Ice hockey", "Cricket"], detail: "Archery is one of Naadam's three core sports." },
+{ question: "What is a notable rule in bokh wrestling?", answer: "No weight classes", options: ["No weight classes", "No grappling", "Must wear helmets", "Only team matches"], detail: "Bokh traditionally has no weight classes." },
+{ question: "What is commonly sold as festival street food during Naadam?", answer: "Huushuur", options: ["Huushuur", "Sushi", "Tacos", "Paella"], detail: "Huushuur is strongly associated with Naadam." },
+{ question: "Where is the largest national Naadam opening held?", answer: "Ulaanbaatar", options: ["Ulaanbaatar", "Murun", "Altai", "Choibalsan"], detail: "The biggest ceremony is in the capital." },
+{ question: "Naadam primarily celebrates which heritage?", answer: "Nomadic sports and culture", options: ["Nomadic sports and culture", "Maritime trade", "Industrial robotics", "Snowboard culture"], detail: "The festival reflects deep nomadic traditions." }
+]};
+</script>
+<script src="mini-quiz.js"></script>
+```

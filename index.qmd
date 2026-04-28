@@ -1,80 +1,110 @@
----
-title: "All Games"
-page-layout: full
-toc: false
----
-
-```{=html}
-<div class="mongolia-shell hub-shell">
-  <section class="hub-hero">
-    <p class="archive-eyebrow">Game Library</p>
-    <h1>All Games</h1>
-    <p class="hub-lead">
-      A growing set of Mongolia-focused games and quick geography challenges. Start with the four
-      live games below, then use the reserved slots as the library expands.
-    </p>
-  </section>
-
-  <section class="hub-grid">
-    <a class="game-tile game-tile-live" href="mongolia-100.html">
-      <p class="game-tile-label">Live now</p>
-      <h2>Mongolia 100</h2>
-      <p class="game-tile-copy">
-        Build a streak by answering Mongolia fact cards without repeats inside a cycle.
-      </p>
-      <div class="game-tile-meta">
-        <span>100 facts</span>
-        <span>Streak mode</span>
-        <span>Daily play</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="province-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2>Province Guessr</h2>
-      <p class="game-tile-copy">
-        Click the correct aimag on an interactive Mongolia map and keep the province streak alive.
-      </p>
-      <div class="game-tile-meta">
-        <span>21 aimags</span>
-        <span>Map play</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live" href="landmark-guessr.html">
-      <p class="game-tile-label">Live now</p>
-      <h2>Landmark Guessr</h2>
-      <p class="game-tile-copy">
-        Read the landmark prompt, place it on the map, and chain together a full location streak.
-      </p>
-      <div class="game-tile-meta">
-        <span>11 landmarks</span>
-        <span>Map precision</span>
-        <span>No repeats in a run</span>
-      </div>
-    </a>
-
-    <a class="game-tile game-tile-live game-tile-accent" href="ger-puzzle.html">
-      <p class="game-tile-label">Live now</p>
-      <h2>Ger Builder</h2>
-      <p class="game-tile-copy">
-        Learn the order of building a Mongolian ger by placing each structural piece and cover in sequence.
-      </p>
-      <div class="game-tile-meta">
-        <span>7 build steps</span>
-        <span>Animated lesson</span>
-        <span>Educational play</span>
-      </div>
-    </a>
-
-    <article class="game-tile game-tile-soon">
-      <p class="game-tile-label">Coming soon</p>
-      <h2>History Sprint</h2>
-      <p class="game-tile-copy">
-        Placeholder slot for a future timeline or historical fact guessing game.
-      </p>
-    </article>
-  </section>
-</div>
-```
+diff --git a/index.qmd b/index.qmd
+index d884fcc02f8cb323391344b4ed2ed6acd2a20d0b..8cd7d324be6f633b45b00db53fac5a17fad7dd19 100644
+--- a/index.qmd
++++ b/index.qmd
+@@ -1,39 +1,39 @@
+ ---
+ title: "All Games"
+ page-layout: full
+ toc: false
+ ---
+ 
+ ```{=html}
+ <div class="mongolia-shell hub-shell">
+   <section class="hub-hero">
+     <p class="archive-eyebrow">Game Library</p>
+     <h1>All Games</h1>
+     <p class="hub-lead">
+-      A growing set of Mongolia-focused games and quick geography challenges. Start with the four
+-      live games below, then use the reserved slots as the library expands.
++      A growing set of Mongolia-focused games and quick geography challenges. Start with the eight
++      live games below spanning maps, culture, history, and fast quiz decks.
+     </p>
+   </section>
+ 
+   <section class="hub-grid">
+     <a class="game-tile game-tile-live" href="mongolia-100.html">
+       <p class="game-tile-label">Live now</p>
+       <h2>Mongolia 100</h2>
+       <p class="game-tile-copy">
+         Build a streak by answering Mongolia fact cards without repeats inside a cycle.
+       </p>
+       <div class="game-tile-meta">
+         <span>100 facts</span>
+         <span>Streak mode</span>
+         <span>Daily play</span>
+       </div>
+     </a>
+ 
+     <a class="game-tile game-tile-live game-tile-accent" href="province-guessr.html">
+       <p class="game-tile-label">Live now</p>
+       <h2>Province Guessr</h2>
+       <p class="game-tile-copy">
+         Click the correct aimag on an interactive Mongolia map and keep the province streak alive.
+       </p>
+       <div class="game-tile-meta">
+         <span>21 aimags</span>
+@@ -46,35 +46,56 @@ toc: false
+       <p class="game-tile-label">Live now</p>
+       <h2>Landmark Guessr</h2>
+       <p class="game-tile-copy">
+         Read the landmark prompt, place it on the map, and chain together a full location streak.
+       </p>
+       <div class="game-tile-meta">
+         <span>11 landmarks</span>
+         <span>Map precision</span>
+         <span>No repeats in a run</span>
+       </div>
+     </a>
+ 
+     <a class="game-tile game-tile-live game-tile-accent" href="ger-puzzle.html">
+       <p class="game-tile-label">Live now</p>
+       <h2>Ger Builder</h2>
+       <p class="game-tile-copy">
+         Learn the order of building a Mongolian ger by placing each structural piece and cover in sequence.
+       </p>
+       <div class="game-tile-meta">
+         <span>7 build steps</span>
+         <span>Animated lesson</span>
+         <span>Educational play</span>
+       </div>
+     </a>
+ 
+-    <article class="game-tile game-tile-soon">
+-      <p class="game-tile-label">Coming soon</p>
+-      <h2>History Sprint</h2>
+-      <p class="game-tile-copy">
+-        Placeholder slot for a future timeline or historical fact guessing game.
+-      </p>
+-    </article>
++    <a class="game-tile game-tile-live" href="steppe-wildlife.html">
++      <p class="game-tile-label">New</p>
++      <h2>Steppe Wildlife</h2>
++      <p class="game-tile-copy">Fast quiz on Mongolia's iconic wildlife, habitats, and conservation stories.</p>
++      <div class="game-tile-meta"><span>10 cards</span><span>Nature theme</span><span>Streak mode</span></div>
++    </a>
++
++    <a class="game-tile game-tile-live game-tile-accent" href="naadam-arena.html">
++      <p class="game-tile-label">New</p>
++      <h2>Naadam Arena</h2>
++      <p class="game-tile-copy">Challenge yourself with questions about Naadam sports, customs, and festival culture.</p>
++      <div class="game-tile-meta"><span>10 cards</span><span>Festival theme</span><span>Streak mode</span></div>
++    </a>
++
++    <a class="game-tile game-tile-live" href="empire-timeline.html">
++      <p class="game-tile-label">New</p>
++      <h2>Empire Timeline</h2>
++      <p class="game-tile-copy">Run through key Mongolian history milestones, leaders, and turning points.</p>
++      <div class="game-tile-meta"><span>10 cards</span><span>History theme</span><span>Streak mode</span></div>
++    </a>
++
++    <a class="game-tile game-tile-live game-tile-accent" href="ger-life.html">
++      <p class="game-tile-label">New</p>
++      <h2>Ger Life</h2>
++      <p class="game-tile-copy">Learn daily-life and household traditions connected to the Mongolian ger.</p>
++      <div class="game-tile-meta"><span>10 cards</span><span>Culture theme</span><span>Streak mode</span></div>
++    </a>
++
+   </section>
+ </div>
+ ```
